@@ -4,4 +4,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="messageService" class="org.demo.MessageServiceImpl"/>
+
+    <!-- 静态工厂 -->
+    <bean id="clientService"
+          class="org.demo.facotrybean.ClientService"
+          factory-method="createInstance"/>
+
+    <!-- 实例工厂 -->
+    <bean id="serviceLocator" class="org.demo.facotrybean.DefaultServiceLocator">
+        <!-- inject any dependencies required by this locator bean -->
+    </bean>
+    <bean id="clientServiceF"
+          factory-bean="serviceLocator"
+          factory-method="createClientServiceInstance"/>
+    <bean id="accountService"
+          factory-bean="serviceLocator"
+          factory-method="createAccountServiceInstance"/>
 </beans>
