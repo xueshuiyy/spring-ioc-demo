@@ -4,20 +4,29 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="messageService" class="org.demo.MessageServiceImpl"/>
-
+    <!--<bean id="car" class="org.demo.Car">
+        <property name="carName">
+            <value>Mini</value>
+        </property>
+    </bean>-->
+    <!--<bean class="org.demo.processor.TestBeanPostProcessor" />-->
+    <bean class="org.demo.processor.LogBeanPostProcessor" />
+    <bean class="org.demo.processor2.NameBeanPostProcessor">
+        <property name="name" value="MyNameIsLin" />
+    </bean>
     <!-- 静态工厂 -->
-    <bean id="clientService"
+    <!--<bean id="clientService"
           class="org.demo.facotrybean.ClientService"
           factory-method="createInstance"/>
 
-    <!-- 实例工厂 -->
+    &lt;!&ndash; 实例工厂 &ndash;&gt;
     <bean id="serviceLocator" class="org.demo.facotrybean.DefaultServiceLocator">
-        <!-- inject any dependencies required by this locator bean -->
+        &lt;!&ndash; inject any dependencies required by this locator bean &ndash;&gt;
     </bean>
     <bean id="clientServiceF"
           factory-bean="serviceLocator"
           factory-method="createClientServiceInstance"/>
     <bean id="accountService"
           factory-bean="serviceLocator"
-          factory-method="createAccountServiceInstance"/>
+          factory-method="createAccountServiceInstance"/>-->
 </beans>
