@@ -3,8 +3,6 @@ package org.demo;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.HashMap;
-
 /**
  * Created by Administrator on 2019/3/20.
  */
